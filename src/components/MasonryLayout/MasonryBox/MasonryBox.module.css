@@ -62,4 +62,9 @@
 
 .my-masonry:hover .my-masnry-user-box {
     margin-bottom: 15px;
+    
+}
+
+.my-masonry:hover  {
+    cursor: pointer;
 }

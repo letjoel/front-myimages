@@ -1,9 +1,8 @@
-// import styles of this component
 import styles from "./HomePage.module.css";
 import images from "../../jsons/images.json";
 import MasonryLayout from "../../components/MasonryLayout/MasonryLayout";
 
-const HomePage = (props: any) => {
+const HomePage = () => {
   return (
     <>
       <div
