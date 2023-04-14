@@ -2,7 +2,7 @@
 import styles from "./MasonryBox.module.css";
 
 // MasonryBox component
-const MasonryBox = ({ wallSrc }: any) => {
+const MasonryBox = ({ wallSrc, title, id }: any) => {
   return (
     <div className={styles["my-masonry"]}>
       <img src={wallSrc} style={{ width: "100%" }} alt="" />
@@ -13,7 +13,7 @@ const MasonryBox = ({ wallSrc }: any) => {
           <div
             className={`${styles["my-masnry-user-prof-desc"]} flex flex-column`}
           >
-            <h1>Title</h1>
+            <h1>{title}</h1>
             <span>❌ Remove</span> <span>✏️ Edit</span>
           </div>
         </div>

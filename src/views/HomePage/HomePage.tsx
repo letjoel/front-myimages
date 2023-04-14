@@ -1,6 +1,7 @@
 import styles from "./HomePage.module.css";
 import images from "../../jsons/images.json";
 import MasonryLayout from "../../components/MasonryLayout/MasonryLayout";
+import ImageModal from "../../components/ImageModal/ImageModal";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
             <h1>All images</h1>
           </div>
           <MasonryLayout images={images} />
+          <ImageModal image={images[0]} />
         </section>
       </div>
     </>

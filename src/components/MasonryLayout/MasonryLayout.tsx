@@ -11,15 +11,22 @@ const MasonryLayout = ({ images }: any) => {
   };
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className={styles["my-masonry-grid"]}
-      columnClassName={styles["my-masonry-grid_column"]}
-    >
-      {images.map((item: any) => (
-        <MasonryBox key={item.id} wallSrc={item.imageUrl} />
-      ))}
-    </Masonry>
+    <>
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className={styles["my-masonry-grid"]}
+        columnClassName={styles["my-masonry-grid_column"]}
+      >
+        {images.map((image: any) => (
+          <MasonryBox
+            key={image.id}
+            wallSrc={image.imageUrl}
+            title={image.title}
+            id={image.id}
+          />
+        ))}
+      </Masonry>
+    </>
   );
 };
 
