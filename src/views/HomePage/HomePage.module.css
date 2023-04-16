@@ -1,10 +1,39 @@
+.section {
+    margin-top: 50px; 
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
 .gallery-setting {
     width: 100%;
     margin-bottom: 40px;
+
 }
 
 .gallery-setting h1 {
     color: var(--green-white-100);
     font-size: 2rem;
     font-weight: bold;
+}
+
+.addButtonContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.addButton {
+    background-color: aqua;
+    height: 20px;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+        border: none;
+            outline: none;
+
+}
+.addButton:hover {
+    background-color: #fff;
 }

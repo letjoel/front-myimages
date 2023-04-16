@@ -1,0 +1,35 @@
+.logoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logoContainer p{
+    line-height: .01em;
+    font-size: 1.2rem;
+
+    font-weight:200;
+}
+
+.header {
+    display: flex;
+    align-items: start;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.navlist {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.navlist li a{
+    color: var(----main-text-color);
+    text-decoration: none;
+}
+
+.navlist li a:hover {
+    color: var(--secondary-text-color);
+}

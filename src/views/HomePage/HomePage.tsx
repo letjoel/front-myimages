@@ -5,22 +5,16 @@ import ImageModal from "../../components/ImageModal/ImageModal";
 
 const HomePage = () => {
   return (
-    <>
-      <div
-        className="flex justify-content-center"
-        style={{ marginTop: "50px", padding: "50px" }}
-      >
-        <section>
-          <div
-            className={`${styles["gallery-setting"]} flex justify-content-between align-items-center`}
-          >
-            <h1>All images</h1>
-          </div>
-          <MasonryLayout images={images} />
-          <ImageModal image={images[0]} />
-        </section>
+    <section className={styles.section}>
+      <div className={`${styles["gallery-setting"]}`}>
+        <div className={styles.addButtonContainer}>
+          <h1>All images</h1>
+          <button className={styles.addButton}>Add image</button>
+        </div>
+        <MasonryLayout images={images} />
       </div>
-    </>
+      <ImageModal image={images[0]} />
+    </section>
   );
 };
 

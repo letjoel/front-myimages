@@ -4,13 +4,13 @@ import logo from "../../assets/logo_gray_md.png";
 
 const Navbar = () => {
   return (
-    <header className={styles.HeaderDesktop}>
+    <header className={styles.header}>
+      <div className={styles.logoContainer}>
+        <img src={logo} height={55} alt="logo" />
+        <p>Imagine</p>
+      </div>
       <nav>
-        <div>
-          <img src={logo} height={85} alt="logo" />
-          <p>Imagine</p>
-        </div>
-        <ul>
+        <ul className={styles.navlist}>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
