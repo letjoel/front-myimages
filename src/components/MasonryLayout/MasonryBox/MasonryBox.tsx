@@ -2,9 +2,13 @@
 import styles from "./MasonryBox.module.css";
 
 // MasonryBox component
-const MasonryBox = ({ wallSrc, title, id }: any) => {
+const MasonryBox = ({ wallSrc, title, id, viewImageFc }: any) => {
+  const handleViewImage = (id: number) => {
+    viewImageFc(id);
+  };
+
   return (
-    <div className={styles["my-masonry"]}>
+    <div onClick={() => handleViewImage(id)} className={styles["my-masonry"]}>
       <img src={wallSrc} style={{ width: "100%" }} alt="" />
       <div className={`${styles["my-masnry-description"]} flex`}>
         <div

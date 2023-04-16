@@ -1,11 +1,14 @@
+import { IImage } from "../../interfaces/image.interface";
 import styles from "./ImageModal.module.css";
 
-const ImageModal = ({ image }: any) => {
+const ImageModal: React.FC<any> = ({ image, close }) => {
   return (
-    <div className={styles.modalWrapper}>
+    <div onClick={close} className={styles.modalWrapper}>
       <div className={styles.modal}>
-        Modal image
-        <img src={image.imageUrl} alt={image.title} />
+        <h1>{image.title}</h1>
+        <div className={styles.imageContainer}>
+          <img src={image.imageUrl} alt={image.title} />
+        </div>
       </div>
     </div>
   );
