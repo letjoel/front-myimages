@@ -1,0 +1,31 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid var(--secondary-bg-color);
+    padding: 20px 20px 40px 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+}
+
+form input[type="text"] {
+    width: 100%;
+}
+
+form input[type="file"] {
+    width: 100%;
+}
+
+.sendButton {
+    cursor: pointer;
+    padding: 20px 30px;
+}
+
+
+
+
+
