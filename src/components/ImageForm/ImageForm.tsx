@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./ImageForm.module.css";
+import { postImage } from "../../services/imageService";
 
 type Props = {};
 
@@ -16,6 +17,16 @@ const ImageForm = (props: Props) => {
 
   const handleSubmitNew = (e: any) => {
     e.preventDefault();
+    if (!title || !image) {
+      return;
+    }
+
+    postImage(title, image)
+      .then((data) => console.log("Form has been correctly sent: ", data))
+      .catch((error) => {
+        console.log("Error when trying to send the image: ", error);
+      });
+
     //
   };
   const handleSubmitEdit = () => {

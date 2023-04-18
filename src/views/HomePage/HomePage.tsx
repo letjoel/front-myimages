@@ -23,7 +23,6 @@ const HomePage = () => {
   // Modal
   const [open, setOpen] = useState<Boolean>(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [firstRender, setFirstRender] = useState<Boolean>(false);
 
   const viewImage = (id: number) => {
     setSelectedImage(id);

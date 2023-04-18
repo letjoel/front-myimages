@@ -1,6 +1,7 @@
 import axios from "axios";
 import { IImage } from "../interfaces/image.interface";
 import { customAlphabet } from "nanoid";
+import { IImageDto } from "../interfaces/image-dto.interface";
 
 const nanoid = customAlphabet("1234567890", 18);
 
@@ -14,12 +15,14 @@ const config = {
   },
 };
 
-export const postImage = async (data: IImage, image: File) => {
+export const postImage = async (title: string, image: File) => {
+  const randomNum =
+    Math.floor(Math.random() * 900000000000000) + 100000000000000;
+
   const formData = new FormData();
+  formData.append("id", randomNum.toString());
   formData.append("file", image);
-  formData.append("id", nanoid());
-  formData.append("imageUrl", data.imageUrl);
-  formData.append("title", data.title);
+  formData.append("title", title);
 
   try {
     const response = await axios.post(API_URL_IMAGES, formData, config);
