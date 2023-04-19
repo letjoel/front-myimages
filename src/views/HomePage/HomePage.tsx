@@ -1,25 +1,12 @@
 import styles from "./HomePage.module.css";
-// import images from "../../jsons/images.json";
 import MasonryLayout from "../../components/MasonryLayout/MasonryLayout";
 import ImageModal from "../../components/ImageModal/ImageModal";
-import { postImage, getAllImages } from "../../services/imageService";
+import { getAllImages } from "../../services/imageService";
 import { useEffect, useState } from "react";
 import { IImage } from "../../interfaces/image.interface";
-import { useFetcher } from "react-router-dom";
 import ImageForm from "../../components/ImageForm/ImageForm";
 
 const HomePage = () => {
-  // Image data
-  const [images, setImages] = useState<IImage[] | null>(null);
-
-  useEffect(() => {
-    getAllImages()
-      .then((images) => {
-        setImages(images);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
   // Modal
   const [open, setOpen] = useState<Boolean>(false);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -36,6 +23,21 @@ const HomePage = () => {
   // Add image form
   const [form, setForm] = useState<Boolean>(false);
 
+  const handleRerender = () => {
+    setForm(!form);
+  };
+
+  // Image data
+  const [images, setImages] = useState<IImage[] | null>(null);
+
+  useEffect(() => {
+    getAllImages()
+      .then((images) => {
+        setImages(images);
+      })
+      .catch((error) => console.log(error));
+  }, [form]);
+
   return (
     <section className={styles.section}>
       <div className={`${styles["gallery-setting"]}`}>
@@ -47,7 +49,7 @@ const HomePage = () => {
         </div>
 
         {form ? (
-          <ImageForm />
+          <ImageForm rerender={handleRerender} />
         ) : (
           <MasonryLayout imagesArray={images} viewImage={viewImage} />
         )}

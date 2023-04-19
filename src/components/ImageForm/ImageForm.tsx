@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ImageForm.module.css";
 import { postImage } from "../../services/imageService";
+import FormAlert from "../FormAlert/FormAlert";
 
-type Props = {};
+const ImageForm = ({ rerender }: any) => {
+  // Alert form
+  const [alert, setAlert] = useState<any>({});
+  const { msg } = alert;
 
-const ImageForm = (props: Props) => {
+  // Form
   const [title, setTitle] = useState<string | null>(null);
   const [image, setImage] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -17,14 +21,37 @@ const ImageForm = (props: Props) => {
 
   const handleSubmitNew = (e: any) => {
     e.preventDefault();
-    if (!title || !image) {
+    if (!title) {
+      setAlert({
+        msg: "Title must be introduced",
+        isError: true,
+      });
+      return;
+    }
+    if (!image) {
+      setAlert({
+        msg: "Image must be provided",
+        isError: true,
+      });
       return;
     }
 
     postImage(title, image)
-      .then((data) => console.log("Form has been correctly sent: ", data))
-      .catch((error) => {
-        console.log("Error when trying to send the image: ", error);
+      .then(() => {
+        setAlert({
+          msg: "Image successfuly uploaded...",
+          isError: false,
+        });
+        setTimeout(() => {
+          setAlert({});
+          rerender();
+        }, 3500);
+      })
+      .catch(() => {
+        setAlert({
+          msg: "Error when trying to send the image",
+          isError: true,
+        });
       });
 
     //
@@ -53,6 +80,7 @@ const ImageForm = (props: Props) => {
           accept="image/*"
         />
         {previewUrl && <img width={"100%"} src={previewUrl} alt="Preview" />}
+        {msg && <FormAlert alert={alert} />}
         <button className={styles.sendButton}>Send</button>
       </form>
     </div>

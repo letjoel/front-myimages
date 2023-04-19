@@ -21,8 +21,16 @@ form input[type="file"] {
 }
 
 .sendButton {
+    margin-top: 40px;
     cursor: pointer;
     padding: 20px 30px;
+    outline: none;
+    border: none;
+    background-color: var(--secondary-bg-color);
+}
+
+.sendButton:hover{
+    background-color: var(--tertiary-bg-color);
 }
 
 
