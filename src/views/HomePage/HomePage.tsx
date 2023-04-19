@@ -5,6 +5,7 @@ import { getAllImages } from "../../services/imageService";
 import { useEffect, useState } from "react";
 import { IImage } from "../../interfaces/image.interface";
 import ImageForm from "../../components/ImageForm/ImageForm";
+import Footer from "../../components/Footer/Footer";
 
 const HomePage = () => {
   // Modal
@@ -39,29 +40,32 @@ const HomePage = () => {
   }, [form, open]);
 
   return (
-    <section className={styles.section}>
-      <div className={`${styles["gallery-setting"]}`}>
-        <div className={styles.addButtonContainer}>
-          <h1>All images</h1>
-          <button onClick={() => setForm(!form)} className={styles.addButton}>
-            {form ? "Back" : "Add image"}
-          </button>
-        </div>
+    <>
+      <section className={styles.section}>
+        <div className={`${styles["gallery-setting"]}`}>
+          <div className={styles.addButtonContainer}>
+            <h1>All images</h1>
+            <button onClick={() => setForm(!form)} className={styles.addButton}>
+              {form ? "Back" : "Add image"}
+            </button>
+          </div>
 
-        {form ? (
-          <ImageForm rerender={handleRerender} />
-        ) : (
-          <MasonryLayout imagesArray={images} viewImage={viewImage} />
+          {form ? (
+            <ImageForm rerender={handleRerender} />
+          ) : (
+            <MasonryLayout imagesArray={images} viewImage={viewImage} />
+          )}
+        </div>
+        {open && (
+          <ImageModal
+            image={images?.find((image) => image.id === selectedImage)!}
+            close={handleCloseModal}
+            rerender={handleRerender}
+          />
         )}
-      </div>
-      {open && (
-        <ImageModal
-          image={images?.find((image) => image.id === selectedImage)!}
-          close={handleCloseModal}
-          rerender={handleRerender}
-        />
-      )}
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 };
 
