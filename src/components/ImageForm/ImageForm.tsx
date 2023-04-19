@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
 import styles from "./ImageForm.module.css";
-import { postImage } from "../../services/imageService";
+import {
+  getOneImageById,
+  postImage,
+  updateImageAndTitle,
+  updateTitle,
+} from "../../services/imageService";
 import FormAlert from "../FormAlert/FormAlert";
+import { useNavigate } from "react-router-dom";
 
-const ImageForm = ({ rerender }: any) => {
+const ImageForm = ({ rerender, imageId, editMode }: any) => {
+  const navigate = useNavigate();
+
+  // imageId if provided
+  const [imageRecovered, setImageRecovered] = useState<any>(null);
+
   // Alert form
   const [alert, setAlert] = useState<any>({});
   const { msg } = alert;
@@ -19,7 +30,7 @@ const ImageForm = ({ rerender }: any) => {
     setPreviewUrl(selectedImage ? URL.createObjectURL(selectedImage) : null);
   };
 
-  const handleSubmitNew = (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!title) {
       setAlert({
@@ -29,6 +40,26 @@ const ImageForm = ({ rerender }: any) => {
       return;
     }
     if (!image) {
+      if (editMode) {
+        updateTitle(imageId, title)
+          .then(() => {
+            setAlert({
+              msg: "Title successfuly updated...",
+              isError: false,
+            });
+            setTimeout(() => {
+              setAlert({});
+              navigate("/");
+            }, 3500);
+          })
+          .catch(() => {
+            setAlert({
+              msg: "Error when trying to update the title",
+              isError: true,
+            });
+          });
+      }
+
       setAlert({
         msg: "Image must be provided",
         isError: true,
@@ -36,40 +67,79 @@ const ImageForm = ({ rerender }: any) => {
       return;
     }
 
-    postImage(title, image)
-      .then(() => {
-        setAlert({
-          msg: "Image successfuly uploaded...",
-          isError: false,
+    if (editMode) {
+      updateImageAndTitle(imageId, title, image)
+        .then(() => {
+          setAlert({
+            msg: "Image successfuly updated...",
+            isError: false,
+          });
+          setTimeout(() => {
+            setAlert({});
+            navigate("/");
+          }, 3500);
+        })
+        .catch(() => {
+          setAlert({
+            msg: "Error when trying to send the image",
+            isError: true,
+          });
         });
-        setTimeout(() => {
-          setAlert({});
-          rerender();
-        }, 3500);
-      })
-      .catch(() => {
-        setAlert({
-          msg: "Error when trying to send the image",
-          isError: true,
+    } else {
+      postImage(title, image)
+        .then(() => {
+          setAlert({
+            msg: "Image successfuly uploaded...",
+            isError: false,
+          });
+          setTimeout(() => {
+            setAlert({});
+            rerender();
+          }, 3500);
+        })
+        .catch(() => {
+          setAlert({
+            msg: "Error when trying to send the image",
+            isError: true,
+          });
         });
-      });
+    }
+  };
 
-    //
-  };
-  const handleSubmitEdit = () => {
-    //
-  };
+  useEffect(() => {
+    const load = async () => {
+      if (imageId) {
+        getOneImageById(imageId)
+          .then((image) => {
+            if (image) {
+              setImageRecovered(image);
+              setTitle(image.title);
+              setImage(image.image);
+              setPreviewUrl(image.imageUrl ? image.imageUrl : null);
+            } else {
+              console.log("Error when getting the existent image");
+            }
+          })
+          .catch(() => {
+            console.log("Error when getting the existent image");
+          });
+      }
+    };
+
+    load();
+  }, []);
 
   return (
     <div className={styles.formContainer}>
-      <form onSubmit={handleSubmitNew} className={styles.form}>
-        <h1>Add image</h1>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <h1>{editMode ? "Edit image" : "Upload image"}</h1>
         <label htmlFor="title">Title</label>
         <input
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           name="title"
           id="title"
+          value={title || ""}
         />
         <label htmlFor="image">Upload image</label>
         <input
@@ -79,6 +149,7 @@ const ImageForm = ({ rerender }: any) => {
           id="image"
           accept="image/*"
         />
+
         {previewUrl && <img width={"100%"} src={previewUrl} alt="Preview" />}
         {msg && <FormAlert alert={alert} />}
         <button className={styles.sendButton}>Send</button>

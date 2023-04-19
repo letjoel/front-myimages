@@ -36,11 +36,51 @@ export const getAllImages = async () => {
   }
 };
 
+export const getOneImageById = async (id: string) => {
+  try {
+    const response = await axios.get(API_URL_IMAGES + "/id/" + id);
+    return response.data;
+  } catch (error) {
+    throw new Error("It was not possible to get the image.");
+  }
+};
+
 export const removeImage = async (id: number) => {
   try {
     const response = await axios.delete(API_URL_IMAGES + "/" + id);
     return response.data;
   } catch (error: any) {
     throw new Error("It was not possible to delete the image.");
+  }
+};
+
+export const updateTitle = async (id: string, title: string) => {
+  try {
+    const response = await axios.patch(API_URL_IMAGES + "/" + id, { title });
+    return response.data;
+  } catch (error: any) {
+    throw new Error("It was not possible to modify the title.");
+  }
+};
+
+export const updateImageAndTitle = async (
+  id: string,
+  title: string,
+  image: File
+) => {
+  const formData = new FormData();
+  formData.append("id", id);
+  formData.append("file", image);
+  formData.append("title", title);
+
+  try {
+    const response = await axios.patch(
+      API_URL_IMAGES + "/fullupdate/" + id,
+      formData,
+      config
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
 };
