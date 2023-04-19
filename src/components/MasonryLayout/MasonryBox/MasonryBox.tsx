@@ -18,7 +18,6 @@ const MasonryBox = ({ wallSrc, title, id, viewImageFc }: any) => {
             className={`${styles["my-masnry-user-prof-desc"]} flex flex-column`}
           >
             <h1>{title}</h1>
-            <span>❌ Remove</span> <span>✏️ Edit</span>
           </div>
         </div>
       </div>

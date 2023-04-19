@@ -17,7 +17,7 @@ const HomePage = () => {
   };
 
   const handleCloseModal = () => {
-    setOpen(!open);
+    setOpen(false);
   };
 
   // Add image form
@@ -36,7 +36,7 @@ const HomePage = () => {
         setImages(images);
       })
       .catch((error) => console.log(error));
-  }, [form]);
+  }, [form, open]);
 
   return (
     <section className={styles.section}>
@@ -58,6 +58,7 @@ const HomePage = () => {
         <ImageModal
           image={images?.find((image) => image.id === selectedImage)!}
           close={handleCloseModal}
+          rerender={handleRerender}
         />
       )}
     </section>

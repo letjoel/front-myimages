@@ -1,9 +1,4 @@
 import axios from "axios";
-import { IImage } from "../interfaces/image.interface";
-import { customAlphabet } from "nanoid";
-import { IImageDto } from "../interfaces/image-dto.interface";
-
-const nanoid = customAlphabet("1234567890", 18);
 
 const API_BASE = "http://localhost:3000/";
 const API_URL = API_BASE + "api/v1/";
@@ -37,6 +32,15 @@ export const getAllImages = async () => {
     const response = await axios.get(API_URL_IMAGES);
     return response.data;
   } catch (error) {
-    console.error(error);
+    throw new Error("It was not possible to get the images.");
+  }
+};
+
+export const removeImage = async (id: number) => {
+  try {
+    const response = await axios.delete(API_URL_IMAGES + "/" + id);
+    return response.data;
+  } catch (error: any) {
+    throw new Error("It was not possible to delete the image.");
   }
 };
