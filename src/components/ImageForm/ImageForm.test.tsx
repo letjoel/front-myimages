@@ -1,9 +1,14 @@
+import { BrowserRouter } from "react-router-dom";
 import ImageForm from "./ImageForm";
 import { render, screen } from "@testing-library/react";
 
 describe("ImageForm", () => {
   beforeEach(() => {
-    render(<ImageForm />);
+    render(
+      <BrowserRouter>
+        <ImageForm />
+      </BrowserRouter>
+    );
   });
 
   test("Should exist input for title", () => {
