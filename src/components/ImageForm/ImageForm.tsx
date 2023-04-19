@@ -139,6 +139,7 @@ const ImageForm = ({ rerender, imageId, editMode }: any) => {
           type="text"
           name="title"
           id="title"
+          maxLength={12}
           value={title || ""}
         />
         <label htmlFor="image">Upload image</label>
