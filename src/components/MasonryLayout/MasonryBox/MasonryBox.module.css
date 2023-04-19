@@ -6,6 +6,18 @@
     overflow: hidden;
 }
 
+.my-masonry img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.my-masonry:hover img {
+    transform: scale(1.1);
+}
+
+
 .my-masnry-description {
     position: absolute;
     bottom: 0;
