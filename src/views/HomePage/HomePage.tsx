@@ -32,19 +32,34 @@ const HomePage = () => {
 
   // Image data
   const [images, setImages] = useState<IImage[] | null>(null);
+  const [filteredImages, setFilteredImages] = useState<IImage[] | null>(null);
 
   useEffect(() => {
     getAllImages()
       .then((images) => {
         setImages(images);
+        setFilteredImages(images);
       })
       .catch((error) => console.log(error));
   }, [form, open]);
 
+  // Filter images by title
+  const [query, setQuery] = useState("");
+
+  const handleFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value.toLowerCase();
+    if (images) {
+      const filteredImages = images.filter((image) => {
+        return image.title.toLowerCase().includes(query);
+      });
+      setFilteredImages(filteredImages);
+    }
+  };
+
   return (
     <>
       <Banner />
-      <InputSearch />
+      <InputSearch filter={handleFilter} />
       <section className={styles.section}>
         <div className={`${styles["gallery-setting"]}`}>
           <div className={styles.addButtonContainer}>
@@ -57,7 +72,7 @@ const HomePage = () => {
           {form ? (
             <ImageForm rerender={handleRerender} />
           ) : (
-            <MasonryLayout imagesArray={images} viewImage={viewImage} />
+            <MasonryLayout imagesArray={filteredImages} viewImage={viewImage} />
           )}
         </div>
         {open && (
