@@ -1,0 +1,23 @@
+input {
+    background-color: transparent;
+    border: 1px solid var(--secondary-bg-color);
+    outline: none;
+    padding: 10px;
+    max-width: 100%;
+    color: var(--main-text-color)
+}
+
+.inputContainer {
+margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+
+    input {
+        max-width: 300px;
+    }
+
+    .inputContainer {
+        margin-top: 20px;
+    }
+}

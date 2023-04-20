@@ -2,3 +2,6 @@
     color: var(--secondary-text-color);
     font-weight: normal;
 }
+.firstLema em{
+    font-weight: 800;
+}

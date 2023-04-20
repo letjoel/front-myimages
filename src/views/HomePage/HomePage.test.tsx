@@ -6,8 +6,8 @@ describe("HomePage", () => {
     render(<HomePage />);
   });
 
-  test("Should exist h1 `all heading`", () => {
-    expect(screen.getByRole("heading", { name: /all images/i })).toBeDefined();
+  test("Should exist h1 `my images`", () => {
+    expect(screen.getByRole("heading", { name: /my images/i })).toBeDefined();
   });
 
   test("Should exist button `add image`", () => {

@@ -7,6 +7,7 @@ import { IImage } from "../../interfaces/image.interface";
 import ImageForm from "../../components/ImageForm/ImageForm";
 import Footer from "../../components/Footer/Footer";
 import Banner from "../../components/Banner/Banner";
+import InputSearch from "../../components/InputSearch/InputSearch";
 
 const HomePage = () => {
   // Modal
@@ -43,10 +44,11 @@ const HomePage = () => {
   return (
     <>
       <Banner />
+      <InputSearch />
       <section className={styles.section}>
         <div className={`${styles["gallery-setting"]}`}>
           <div className={styles.addButtonContainer}>
-            <h1>All images</h1>
+            <h1>My images</h1>
             <button onClick={() => setForm(!form)} className={styles.addButton}>
               {form ? "Back" : "Add image"}
             </button>
