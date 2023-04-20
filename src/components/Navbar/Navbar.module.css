@@ -18,6 +18,19 @@
     margin-top: 20px;
 }
 
+.blurCircle {
+    background: var(--secondary-text-color);
+    border-radius: 100%;
+    -webkit-filter: blur(250px);
+    filter: blur(250px);
+    height: 250px;
+    left: -125px;
+    position: absolute;
+    top: -125px;
+    width: 250px;
+    z-index: 0;
+}
+
 .navlist {
     list-style: none;
     display: flex;

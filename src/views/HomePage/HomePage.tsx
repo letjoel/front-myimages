@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { IImage } from "../../interfaces/image.interface";
 import ImageForm from "../../components/ImageForm/ImageForm";
 import Footer from "../../components/Footer/Footer";
+import Banner from "../../components/Banner/Banner";
 
 const HomePage = () => {
   // Modal
@@ -41,6 +42,7 @@ const HomePage = () => {
 
   return (
     <>
+      <Banner />
       <section className={styles.section}>
         <div className={`${styles["gallery-setting"]}`}>
           <div className={styles.addButtonContainer}>
