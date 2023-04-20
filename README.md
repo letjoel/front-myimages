@@ -14,6 +14,14 @@ Give space to your `Imagine`ation.
 | :---------------------------------------------------------------: | :---------------------------------------------------------------: | :-: |
 | <img src="https://i.postimg.cc/mgX2KXxW/screen1.png" width="70%"> | <img src="https://i.postimg.cc/ZnST6XNp/screen2.png" width="70%"> |
 
+#
+
+## Demo
+
+https://imagineation.netlify.app/
+
+#
+
 ## 🔧Stacks:
 
 ## Technologies
@@ -26,13 +34,17 @@ Give space to your `Imagine`ation.
  <img src= "https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white"></img> 
  <img src= "https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white"></img>
   <img src= "https://img.shields.io/badge/mongodb-116149?style=for-the-badge&logo=mongodb&logoColor=white"></img> </p>
- 
- ## Tools
+
+#
+
+## Tools
 
  <p align="center">
  <a href=""><img src= "https://img.shields.io/badge/Github-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white"></img></a>
  <a herf="https://trello.com/b/MEFwJ2xu/frases"><img src= "https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white"></img></a>
  </p>
+
+#
 
 ## 💻How to install this project
 
@@ -54,9 +66,13 @@ Give space to your `Imagine`ation.
 Run the npm run dev command to run the React app. Then just open the localhost ( http://localhost:5173 )
 ```
 
+#
+
 ## API
 
 [Backend repository](https://github.com/letjoel/back-myimages) It is mandatory to make image CRUD functional.
+
+#
 
 ## 👀 TEST
 
@@ -66,6 +82,8 @@ Run the npm run dev command to run the React app. Then just open the localhost (
 
 19 unit tests with vitest ui
 
+#
+
 ## 🧪Next Steps:
 
     + user private area
@@ -73,6 +91,8 @@ Run the npm run dev command to run the React app. Then just open the localhost (
     + image crop
     + color edit
     + external cloud service to store images
+
+#
 
 ## 👩‍💻Author:
 

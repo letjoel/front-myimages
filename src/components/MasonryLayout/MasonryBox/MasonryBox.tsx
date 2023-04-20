@@ -1,5 +1,4 @@
 import styles from "./MasonryBox.module.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const MasonryBox = ({ wallSrc, title, id, viewImageFc }: any) => {
   const handleViewImage = (id: number) => {
