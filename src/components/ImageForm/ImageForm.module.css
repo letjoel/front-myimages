@@ -1,6 +1,9 @@
 .formContainer {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--secondary-bg-color);
     padding: 20px 20px 40px 20px;
 }
@@ -32,6 +35,28 @@ form input[type="file"] {
 
 .sendButton:hover{
     background-color: var(--tertiary-bg-color);
+}
+
+.sendLuckButton {
+    margin-top: 1px;
+    cursor: pointer;
+    padding: 10px 40px;
+    outline: none;
+    border: none;
+    background-color: var(--secondary-bg-color);
+    font-style: italic;
+}
+
+.sendLuckButton:hover{
+    background-color: var(--tertiary-bg-color);
+}
+
+.tryLuckContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 200px;
 }
 
 
