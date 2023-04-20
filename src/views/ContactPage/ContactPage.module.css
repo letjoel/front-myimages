@@ -1,0 +1,7 @@
+.mailto {
+    color: var(--secondary-text-color)
+}
+
+.contactSection{
+    min-height: 50vh;
+}
