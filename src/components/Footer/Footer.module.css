@@ -6,8 +6,15 @@ footer {
     align-items: center;
     justify-content: center;
     line-height: .5em;
+    text-align: center;
 }
 
 .footerPoliciesContainer {
     display: flex;
+}
+
+@media (max-width: 768px) {
+footer{
+    line-height: 1em;
+}
 }
