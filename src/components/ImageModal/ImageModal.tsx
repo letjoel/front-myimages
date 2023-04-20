@@ -49,8 +49,8 @@ const ImageModal: React.FC<any> = ({ image, close, rerender }) => {
   return (
     <div className={styles.modalWrapper}>
       <div className={styles.modal}>
-        <div onClick={close} className={styles.heading}>
-          <button>X</button>
+        <div className={styles.heading}>
+          <button onClick={close}>X</button>
         </div>
         <h1>{image.title && image.title}</h1>
 

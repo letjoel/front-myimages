@@ -19,4 +19,6 @@
   color: var(--main-text-color);
   background-color: var(--main-bg-color);
 
+  overflow-x: hidden;
+
 }
