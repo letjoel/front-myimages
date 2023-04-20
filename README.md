@@ -56,14 +56,7 @@ Run the npm run dev command to run the React app. Then just open the localhost (
 
 ## API
 
-[Backend repository](https://github.com/letjoel/back-myimages) It is mandatory to make it functional.
-
-## 📚Methodology:
-
-- Methodology Agile with Scrum.
-- Mob Programming.
-- Pair Programming.
-- TDD.
+[Backend repository](https://github.com/letjoel/back-myimages) It is mandatory to make image CRUD functional.
 
 ## 👀 TEST
 
