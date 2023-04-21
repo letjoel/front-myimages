@@ -8,7 +8,6 @@ import {
 } from "../../services/imageService";
 import FormAlert from "../FormAlert/FormAlert";
 import { useNavigate } from "react-router-dom";
-import { Configuration, OpenAIApi } from "openai";
 
 const ImageForm = ({ rerender, imageId, editMode }: any) => {
   const navigate = useNavigate();
