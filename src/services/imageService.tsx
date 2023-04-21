@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:3000/";
+const API_BASE = "https://imagineapp.up.railway.app/";
 const API_URL = API_BASE + "api/v1/";
 const API_URL_IMAGES = API_URL + "images";
 
