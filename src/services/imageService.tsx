@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "https://imagineapp.up.railway.app/";
+const API_BASE = "https://dolphin-app-43smz.ondigitalocean.app/";
 const API_URL = API_BASE + "api/v1/";
 const API_URL_IMAGES = API_URL + "images";
 
