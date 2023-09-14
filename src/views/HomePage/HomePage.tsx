@@ -1,7 +1,7 @@
 import styles from "./HomePage.module.css";
 import MasonryLayout from "../../components/MasonryLayout/MasonryLayout";
 import ImageModal from "../../components/ImageModal/ImageModal";
-import { getAllImages } from "../../services/imageService";
+import { getAllImages, getAllImagesMock } from "../../services/imageService";
 import { useEffect, useState } from "react";
 import { IImage } from "../../interfaces/image.interface";
 import ImageForm from "../../components/ImageForm/ImageForm";
@@ -35,7 +35,7 @@ const HomePage = () => {
   const [filteredImages, setFilteredImages] = useState<IImage[] | null>(null);
 
   useEffect(() => {
-    getAllImages()
+    getAllImagesMock()
       .then((images) => {
         setImages(images);
         setFilteredImages(images);

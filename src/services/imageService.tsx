@@ -1,4 +1,5 @@
 import axios from "axios";
+import { imageMock } from "../data/imageMock";
 
 const API_BASE = "https://dolphin-app-43smz.ondigitalocean.app/";
 const API_URL = API_BASE + "api/v1/";
@@ -31,6 +32,15 @@ export const getAllImages = async () => {
   try {
     const response = await axios.get(API_URL_IMAGES);
     return response.data;
+  } catch (error) {
+    throw new Error("It was not possible to get the images.");
+  }
+};
+
+export const getAllImagesMock = async () => {
+  try {
+    const response = imageMock;
+    return response;
   } catch (error) {
     throw new Error("It was not possible to get the images.");
   }
